@@ -1,1 +1,4 @@
-<p>bands-list works!</p>
+<input type="text" class="search" (input)="handleBands($event)">
+<div class="bands-container">
+    <app-band-item *ngFor="let band of bands" [band]="band" (click)="handleBand(band)" style="cursor: pointer;"></app-band-item>
+</div>

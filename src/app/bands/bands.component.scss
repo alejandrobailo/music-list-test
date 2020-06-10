@@ -1,0 +1,12 @@
+.container {
+	display: flex;
+	width: 100%;
+
+	.list {
+		width: 60%;
+	}
+
+	.detail {
+		width: 40%;
+	}
+}
