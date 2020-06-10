@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BandService } from '../band.service';
 import { Band } from 'src/app/models/band.model';
 
@@ -8,7 +8,7 @@ import { Band } from 'src/app/models/band.model';
 	styleUrls: [ './bands-list.component.scss' ]
 })
 export class BandsListComponent implements OnInit {
-	bands: Band[];
+	@Input() bands: Band[];
 
 	constructor(private bandService: BandService) {
 		this.bands = this.bandService.getBands();
@@ -18,10 +18,5 @@ export class BandsListComponent implements OnInit {
 
 	handleBand(band) {
 		this.bandService.getDetail(band);
-	}
-
-	handleBands(band) {
-		this.bands = this.bandService.getBand(band.target.value);
-		console.log(this.bands);
 	}
 }

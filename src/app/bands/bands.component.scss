@@ -1,12 +1,14 @@
 .container {
 	display: flex;
-	width: 100%;
+	padding: 6em;
 
 	.list {
 		width: 60%;
+		padding-right: 4em;
 	}
 
 	.detail {
 		width: 40%;
+		padding-left: 4em;
 	}
 }

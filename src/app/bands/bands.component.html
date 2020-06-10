@@ -1,6 +1,7 @@
+<input type="text" class="search" (input)="handleBands($event)">
 <div class="container">
     <div class="list">
-        <app-bands-list></app-bands-list>
+        <app-bands-list [bands]="bandsFiltered"></app-bands-list>
     </div>
     <div class="detail">
         <app-band-detail></app-band-detail>
