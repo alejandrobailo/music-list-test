@@ -17,3 +17,14 @@
 	margin-top: 4em;
 	line-height: 30px;
 }
+
+.remove {
+	float: right;
+	margin-top: 2em;
+	color: tomato;
+	cursor: pointer;
+
+	&:hover {
+		color: darkred;
+	}
+}

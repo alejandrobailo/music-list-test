@@ -1,4 +1,7 @@
-<div class="embed-container">
-    <iframe width="1280" height="720" [src]="safeSrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div *ngIf="!isEmpty" class="container">
+    <div class="embed-container">
+        <iframe width="1280" height="720" [src]="safeSrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="description">{{band.description}}</p>
+    <a (click)="handleRemove()" class="remove">REMOVE ME</a>
 </div>
-<p class="description">{{band.description}}</p>

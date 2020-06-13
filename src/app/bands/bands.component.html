@@ -1,4 +1,10 @@
-<input type="text" class="search" (input)="handleBands($event)">
+<div class="header">
+    <div class="search-container">
+        <input type="text" name="name" class="search" id="nme" required autocomplete="off" (input)="handleBands($event)"/>
+        <label for="nme"><span>Looking for a band?</span></label>
+    </div>
+    <a href="#"><img src="../../assets/images/add-icon.png" alt="add-icon"></a>
+</div>
 <div class="container">
     <div class="list">
         <app-bands-list [bands]="bandsFiltered"></app-bands-list>

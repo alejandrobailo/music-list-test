@@ -2,17 +2,18 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { Band } from '../models/band.model';
-import bands from '../data/bands.data';
+import bandsData from '../data/bands.data';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class BandService {
 	bands: Band[];
+	bandsObs = new Subject<Band[]>();
 	bandSelected = new Subject<Band>();
 
 	constructor() {
-		this.bands = bands;
+		this.bands = bandsData;
 	}
 
 	getBands() {
@@ -25,5 +26,10 @@ export class BandService {
 
 	getDetail(band: Band) {
 		this.bandSelected.next(band);
+	}
+
+	deleteBand(band) {
+		this.bands = this.bands.filter((item) => item !== band);
+		this.bandsObs.next(this.bands);
 	}
 }
