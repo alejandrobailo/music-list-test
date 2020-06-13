@@ -21,15 +21,21 @@ export class BandService {
 	}
 
 	filterBands(bandName: string) {
-		return this.bands.filter((item) => item['name'].toLowerCase().includes(bandName.toLowerCase()));
+		this.bandsObs.next(this.bands.filter((item) => item['name'].toLowerCase().includes(bandName.toLowerCase())));
 	}
 
 	getDetail(band: Band) {
 		this.bandSelected.next(band);
 	}
 
-	deleteBand(band) {
+	deleteBand(band: Band) {
 		this.bands = this.bands.filter((item) => item !== band);
+		this.bandsObs.next(this.bands);
+	}
+
+	createBand(values: Band) {
+		this.bands.unshift(values);
+		console.log(this.bands);
 		this.bandsObs.next(this.bands);
 	}
 }

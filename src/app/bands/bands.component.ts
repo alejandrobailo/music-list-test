@@ -9,16 +9,10 @@ import { Band } from '../models/band.model';
 })
 export class BandsComponent implements OnInit {
 	bands: Band[];
-	bandsFiltered: Band[];
 
 	constructor(private bandService: BandService) {
-		this.bands = bandService.getBands();
-		this.bandsFiltered = this.bands;
+		this.bands = this.bandService.getBands();
 	}
 
 	ngOnInit() {}
-
-	handleBands(band) {
-		this.bandsFiltered = this.bandService.filterBands(band.target.value);
-	}
 }

@@ -1,0 +1,7 @@
+<div class="header">
+    <div class="search-container">
+        <input type="text" name="name" class="search" id="name" required autocomplete="off" (input)="handleBands($event)"/>
+        <label for="name"><span>Looking for a band?</span></label>
+    </div>
+    <a [routerLink]="['/new']"><img src="../../assets/images/add-icon.png" alt="add-icon"></a>
+</div>
