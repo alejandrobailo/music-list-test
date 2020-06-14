@@ -10,3 +10,16 @@
 		align-items: center;
 	}
 }
+
+@media (max-width: 960px) {
+	.bands-container {
+		grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+		gap: 2em;
+	}
+}
+
+@media (max-width: 740px) {
+	.bands-container {
+		grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+	}
+}

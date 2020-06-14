@@ -113,3 +113,25 @@
 		cursor: pointer;
 	}
 }
+
+@media (max-width: 740px) {
+	.header {
+		flex-direction: column;
+		align-items: flex-start;
+		font-size: 1em;
+
+		a {
+			width: 50px;
+			margin-top: 1em;
+		}
+
+		p {
+			font-size: 1em;
+		}
+
+		input.search + label > span,
+		textarea.search + label > span {
+			font-size: 1em;
+		}
+	}
+}

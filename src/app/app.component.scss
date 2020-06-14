@@ -4,4 +4,11 @@
 
 .container {
 	padding: 4em 7em;
+	min-width: 375px;
+}
+
+@media (max-width: 740px) {
+	.container {
+		padding: 2em;
+	}
 }
