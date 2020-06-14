@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.26.
 
+## Demo:
+
+https://music-list-app-e3027.firebaseapp.com
+
+![demo](https://fotos.subefotos.com/3996fc18e3edc5200911797585a70879o.png)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
