@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+
 import { BandService } from '../band.service';
 import { Band } from 'src/app/models/band.model';
 
@@ -10,7 +12,7 @@ import { Band } from 'src/app/models/band.model';
 export class BandsListComponent implements OnInit {
 	@Input() bands: Band[];
 
-	constructor(private bandService: BandService) {
+	constructor(private bandService: BandService, private title: Title, private meta: Meta) {
 		this.bands = this.bandService.getBands();
 	}
 
@@ -23,5 +25,7 @@ export class BandsListComponent implements OnInit {
 
 	handleBand(band) {
 		this.bandService.getDetail(band);
+		this.title.setTitle(band['name']);
+		this.meta.addTag({ property: 'og:title', content: band['name'] }, true);
 	}
 }

@@ -2,15 +2,39 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <input class="form-control" formControlName="name" type="text" placeholder="WRITE THE BAND'S NAME">
+            <p *ngIf="form.controls.name.errors?.required && form.controls.name.touched" class="error">
+                Name is required
+            </p>
+            <p *ngIf="form.controls.name.errors?.maxlength && form.controls.name.touched" class="error">
+                Name is more than {{form.controls.name.errors?.maxlength.requiredLength}} characters
+            </p>
         </div>
         <div class="form-group">
             <input class="form-control" formControlName="img" type="text" placeholder="TYPE THE LOGO URL">
+            <p *ngIf="form.controls.img.errors?.required && form.controls.img.touched" class="error">
+                Logo url is required
+            </p>
+            <p *ngIf="form.controls.img.errors && form.controls.img.touched" class="error">
+                Type a valid url
+            </p>
         </div>
         <div class="form-group">
             <input class="form-control" formControlName="description" type="text" placeholder="ADD SOME DESCRIPTION">
+            <p *ngIf="form.controls.description.errors?.required && form.controls.description.touched" class="error">
+                Description is required
+            </p>
+            <p *ngIf="form.controls.description.errors?.minlength && form.controls.description.touched" class="error">
+                Description is less than {{form.controls.description.errors?.minlength.requiredLength}} characters
+            </p>
         </div>
         <div class="form-group">
             <input class="form-control" formControlName="song" type="text" placeholder="TYPE THE YOUR FAV VIDEO URL">
+            <p *ngIf="form.controls.song.errors?.required && form.controls.song.touched" class="error">
+                Video url is required
+            </p>
+            <p *ngIf="form.controls.song.errors && form.controls.song.touched" class="error">
+                Type a valid url from Youtube
+            </p>
         </div>
         <input type="submit" value="ADD ME" class="button" [disabled]=!form.valid>
     </form>

@@ -3,7 +3,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { BandService } from '../band.service';
 import { Band } from 'src/app/models/band.model';
-import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-band-detail',
@@ -15,7 +14,7 @@ export class BandDetailComponent implements OnInit {
 	isEmpty: boolean;
 	safeSrc: SafeResourceUrl;
 
-	constructor(private bandService: BandService, private sanitizer: DomSanitizer, private router: Router) {
+	constructor(private bandService: BandService, private sanitizer: DomSanitizer) {
 		this.band = this.bandService.getBands()[0];
 		if (this.band) {
 			this.safeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.band['song']);
