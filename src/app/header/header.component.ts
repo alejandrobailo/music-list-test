@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Band } from '../models/band.model';
+
 import { BandService } from '../bands/band.service';
-import { Subject } from 'rxjs';
 
 @Component({
 	selector: 'app-header',
@@ -10,10 +9,21 @@ import { Subject } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 	isForm: boolean;
+	isHeader: boolean;
 
-	constructor(private bandService: BandService) {}
+	constructor(private bandService: BandService) {
+		this.isHeader = true;
+		this.bandService.isFormObs.subscribe((data) => (this.isForm = data));
+	}
 
 	ngOnInit() {
-		setTimeout(() => (this.isForm = this.bandService.isForm), 1);
+		setTimeout(() => {
+			this.bandService.isFormObs.subscribe((data) => (this.isForm = data));
+			this.bandService.headerObs.subscribe((data) => (this.isHeader = data));
+		}, 1);
+	}
+
+	handleBands(band) {
+		this.bandService.filterBands(band.target.value);
 	}
 }

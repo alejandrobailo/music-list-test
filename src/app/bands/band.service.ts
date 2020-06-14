@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { Band } from '../models/band.model';
 import bandsData from '../data/bands.data';
@@ -11,11 +12,12 @@ export class BandService {
 	bands: Band[];
 	bandsObs = new Subject<Band[]>();
 	bandSelected = new Subject<Band>();
-	isForm: boolean;
+	headerObs = new Subject<boolean>();
+	isFormObs = new Subject<boolean>();
 
-	constructor() {
+	constructor(private router: Router) {
 		this.bands = bandsData;
-		this.isForm = true;
+		this.headerObs.next(true);
 	}
 
 	getBands() {
@@ -33,12 +35,22 @@ export class BandService {
 	deleteBand(band: Band) {
 		this.bands = this.bands.filter((item) => item !== band);
 		this.bandsObs.next(this.bands);
+
+		if (!this.bands['0']) {
+			this.router.navigate([ '/new' ]);
+			this.headerObs.next(false);
+		} else {
+			this.bandSelected.next(this.bands[0]);
+		}
 	}
 
 	createBand(values: Band) {
+		let embedUrl = values['song'].replace('watch?v=', 'embed/');
+		values['song'] = embedUrl;
 		this.bands.unshift(values);
-		console.log(this.bands);
+
 		this.bandsObs.next(this.bands);
+		this.headerObs.next(true);
+		this.isFormObs.next(false);
 	}
-	// SOLUCIONAR QUE AL BORRAR PUEDA VER LOS DETAILS DE LAS BANDAS
 }

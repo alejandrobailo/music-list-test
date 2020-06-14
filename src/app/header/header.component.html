@@ -1,11 +1,11 @@
-<div class="header" *ngIf="!isForm">
+<div class="header" *ngIf="!isForm && isHeader">
     <div class="search-container">
         <input type="text" name="name" class="search" id="name" required autocomplete="off" (input)="handleBands($event)"/>
         <label for="name"><span>Looking for a band?</span></label>
     </div>
     <a [routerLink]="['/new']" (click)="isForm = true"><img src="../../assets/images/add-icon.png" alt="add-icon"></a>
 </div>
-<div class="header" *ngIf="isForm">
+<div class="header" *ngIf="isForm && isHeader">
     <p>ADD TO YOUR LIKES BANDS</p>
     <a [routerLink]="['']" (click)="isForm = false"><img src="../../assets/images/back-icon.png" alt="add-icon"></a>
 </div>

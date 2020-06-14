@@ -31,7 +31,7 @@ export class BandFormComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.bandService.isForm = true;
+		this.bandService.isFormObs.next(true);
 	}
 
 	onSubmit() {

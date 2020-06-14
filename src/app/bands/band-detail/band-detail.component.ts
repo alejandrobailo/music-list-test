@@ -3,6 +3,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { BandService } from '../band.service';
 import { Band } from 'src/app/models/band.model';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-band-detail',
@@ -14,10 +15,11 @@ export class BandDetailComponent implements OnInit {
 	isEmpty: boolean;
 	safeSrc: SafeResourceUrl;
 
-	constructor(private bandService: BandService, private sanitizer: DomSanitizer) {
+	constructor(private bandService: BandService, private sanitizer: DomSanitizer, private router: Router) {
 		this.band = this.bandService.getBands()[0];
-		this.safeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.band['song']);
-		this.isEmpty = false;
+		if (this.band) {
+			this.safeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.band['song']);
+		}
 	}
 
 	ngOnInit() {
@@ -28,11 +30,6 @@ export class BandDetailComponent implements OnInit {
 	}
 
 	handleRemove() {
-		if (this.bandService.getBands()[0]) {
-			this.bandService.deleteBand(this.band);
-			this.isEmpty = true;
-		} else {
-			this.bandService.deleteBand(this.band);
-		}
+		this.bandService.deleteBand(this.band);
 	}
 }

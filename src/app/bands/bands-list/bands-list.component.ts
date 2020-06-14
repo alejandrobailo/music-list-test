@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { BandService } from '../band.service';
 import { Band } from 'src/app/models/band.model';
 
@@ -15,8 +15,10 @@ export class BandsListComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.bandService.bandsObs.subscribe((data) => (this.bands = data));
-		this.bandService.isForm = false;
+		this.bandService.bandsObs.subscribe((data) => {
+			this.bands = data;
+		});
+		this.bandService.isFormObs.next(false);
 	}
 
 	handleBand(band) {
