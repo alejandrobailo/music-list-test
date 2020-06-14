@@ -30,7 +30,9 @@ export class BandFormComponent implements OnInit {
 		});
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.bandService.isForm = true;
+	}
 
 	onSubmit() {
 		this.bandService.createBand(this.form.value);

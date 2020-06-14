@@ -16,6 +16,7 @@ export class BandsListComponent implements OnInit {
 
 	ngOnInit() {
 		this.bandService.bandsObs.subscribe((data) => (this.bands = data));
+		this.bandService.isForm = false;
 	}
 
 	handleBand(band) {

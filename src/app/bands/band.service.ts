@@ -11,9 +11,11 @@ export class BandService {
 	bands: Band[];
 	bandsObs = new Subject<Band[]>();
 	bandSelected = new Subject<Band>();
+	isForm: boolean;
 
 	constructor() {
 		this.bands = bandsData;
+		this.isForm = true;
 	}
 
 	getBands() {
@@ -38,4 +40,5 @@ export class BandService {
 		console.log(this.bands);
 		this.bandsObs.next(this.bands);
 	}
+	// SOLUCIONAR QUE AL BORRAR PUEDA VER LOS DETAILS DE LAS BANDAS
 }

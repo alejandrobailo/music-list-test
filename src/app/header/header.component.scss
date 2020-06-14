@@ -2,10 +2,18 @@
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
+	align-items: center;
 
 	a {
 		display: block;
 		width: 80px;
+	}
+
+	p {
+		letter-spacing: 4px;
+		font-weight: 100;
+		font-size: 2em;
+		color: #8e8e8e;
 	}
 
 	input,

@@ -1,0 +1,20 @@
+input.form-control,
+input.button {
+	border: none;
+	outline: none;
+	border-bottom: 1px solid darkgray;
+	padding: 2em 2em 2em 0;
+	width: 50%;
+	min-width: 360px;
+	margin-top: 2em;
+	letter-spacing: 2px;
+
+	&::placeholder {
+		letter-spacing: 2px;
+	}
+}
+
+input.button {
+	border-bottom: none;
+	margin-top: 3em;
+}

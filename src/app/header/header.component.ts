@@ -9,11 +9,11 @@ import { Subject } from 'rxjs';
 	styleUrls: [ './header.component.scss' ]
 })
 export class HeaderComponent implements OnInit {
+	isForm: boolean;
+
 	constructor(private bandService: BandService) {}
 
-	ngOnInit() {}
-
-	handleBands(band) {
-		this.bandService.filterBands(band.target.value);
+	ngOnInit() {
+		setTimeout(() => (this.isForm = this.bandService.isForm), 1);
 	}
 }
