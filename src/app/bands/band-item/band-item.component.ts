@@ -7,7 +7,7 @@ import { Band } from 'src/app/models/band.model';
 	styleUrls: [ './band-item.component.scss' ]
 })
 export class BandItemComponent implements OnInit {
-	@Input() band: Band;
+	@Input() band;
 
 	constructor() {}
 

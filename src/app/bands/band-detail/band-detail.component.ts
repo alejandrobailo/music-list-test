@@ -10,7 +10,7 @@ import { Band } from 'src/app/models/band.model';
 	styleUrls: [ './band-detail.component.scss' ]
 })
 export class BandDetailComponent implements OnInit {
-	band: Band;
+	band;
 	isEmpty: boolean;
 	safeSrc: SafeResourceUrl;
 
