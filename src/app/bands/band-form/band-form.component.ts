@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Meta, Title } from '@angular/platform-browser';
+
 import { BandService } from '../band.service';
 import { Router } from '@angular/router';
 
@@ -11,7 +13,7 @@ import { Router } from '@angular/router';
 export class BandFormComponent implements OnInit {
 	form: FormGroup;
 
-	constructor(private bandService: BandService, private router: Router) {
+	constructor(private bandService: BandService, private router: Router, private title: Title, private meta: Meta) {
 		this.form = new FormGroup({
 			name: new FormControl('', [ Validators.required, Validators.maxLength(25) ]),
 			img: new FormControl('', [
@@ -30,6 +32,8 @@ export class BandFormComponent implements OnInit {
 
 	ngOnInit() {
 		this.bandService.isFormObs.next(true);
+		this.title.setTitle('Add a new band');
+		this.meta.addTag({ property: 'og:title', content: 'Add a new band' }, true);
 	}
 
 	onSubmit() {
