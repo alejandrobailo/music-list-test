@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { BandService } from '../band.service';
-import { Band } from 'src/app/models/band.model';
 
 @Component({
 	selector: 'app-band-detail',

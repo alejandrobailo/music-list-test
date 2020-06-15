@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Meta, Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 import { BandService } from '../band.service';
-import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-band-form',

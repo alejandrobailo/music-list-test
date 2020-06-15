@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Band } from 'src/app/models/band.model';
 
 @Component({
 	selector: 'app-band-item',
